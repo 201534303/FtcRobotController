@@ -1,16 +1,22 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.acmerobotics.dashboard.FtcDashboard;
+import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+
 @TeleOp
 public class ShooterCode extends LinearOpMode {
-    static float motorPower1 = 0; // Adjust power to something non-zero to see RPM
-    static float motorPower2 = 0;
+    public static double motorPower1 = 0.5;
+    public static double motorPower2 = 0;
 
     public void runOpMode() {
+        telemetry = new MultipleTelemetry(telemetry, FtcDashboard.getInstance().getTelemetry());
+
         DcMotor shooterMotor1 = hardwareMap.dcMotor.get("motor1");
         DcMotor shooterMotor2 = hardwareMap.dcMotor.get("motor2");
 
