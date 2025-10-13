@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.acmerobotics.dashboard.config.Config;
+import com.qualcomm.robotcore.util.RobotLog;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
@@ -25,6 +26,9 @@ public class ShooterCode extends LinearOpMode {
 
         shooterMotor1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         shooterMotor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        shooterMotor1.setDirection(DcMotorSimple.Direction.REVERSE);
+        shooterMotor2.setDirection(DcMotorSimple.Direction.REVERSE);
 
         waitForStart();
 
@@ -63,12 +67,10 @@ public class ShooterCode extends LinearOpMode {
             lastPosition2 = currentPosition2;
 
             // Show the RPM of each motor
-            telemetry.addData("Motor 1 RPM", rpm1);
-            telemetry.addData("Motor 2 RPM", rpm2);
+            telemetry.addData("Motor 1 RPM", Math.abs(rpm1));
+            telemetry.addData("Motor 2 RPM", Math.abs(rpm2));
             telemetry.addData("Motor 1 pos", shooterMotor1.getCurrentPosition());
             telemetry.addData("Motor 2 pos", shooterMotor2.getCurrentPosition());
-//            telemetry.addData("Motor 1 pos", shooterMotor1.getCurrentPosition());
-//            telemetry.addData("Motor 2 pos", shooterMotor2.getCurrentPosition());
             telemetry.update();
 
             shooterMotor1.setPower(motorPower1);
