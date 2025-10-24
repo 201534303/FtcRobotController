@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -14,7 +15,8 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 @TeleOp
 @Config
-public class ShooterCode extends LinearOpMode {
+@Disabled
+public class Shooter extends LinearOpMode {
     public static double motorPower1 = 0;
     public static double motorPower2 = 0;
 

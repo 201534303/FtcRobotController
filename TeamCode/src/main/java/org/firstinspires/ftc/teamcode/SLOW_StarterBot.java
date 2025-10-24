@@ -1,19 +1,18 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.IMU;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
+import com.qualcomm.robotcore.hardware.IMU;
+
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 
 @TeleOp
-public class StarterBotCode extends LinearOpMode {
+public class SLOW_StarterBot extends LinearOpMode {
     boolean last = false;
     boolean shoot = false;
-
-
 
     @Override
     public void runOpMode() {
@@ -52,7 +51,7 @@ public class StarterBotCode extends LinearOpMode {
                 shoot = !shoot;
 
                 if(shoot){
-                    shooterMotor.setPower(0.7);
+                    shooterMotor.setPower(0.6);
                 }
                 else{
                     shooterMotor.setPower(0);
@@ -73,10 +72,10 @@ public class StarterBotCode extends LinearOpMode {
             double frontRightPower = (rotY - rotX - rx) / denominator;
             double backRightPower = (rotY + rotX - rx) / denominator;
 
-            frontLeftMotor.setPower(frontLeftPower);
-            backLeftMotor.setPower(backLeftPower);
-            frontRightMotor.setPower(frontRightPower);
-            backRightMotor.setPower(backRightPower);
+            frontLeftMotor.setPower(frontLeftPower*0.5);
+            backLeftMotor.setPower(backLeftPower*0.5);
+            frontRightMotor.setPower(frontRightPower*0.5);
+            backRightMotor.setPower(backRightPower*0.5);
         }
     }
 }
